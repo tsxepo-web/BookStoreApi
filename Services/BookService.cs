@@ -21,8 +21,8 @@ public class BooksService
             bookStoreDatabaseSettings.Value.BooksCollectionName);
     }
 
-    public async Task<List<Book>> GetAsync() =>
-        await _booksCollection.Find(_ => true).ToListAsync();
+    public async Task<List<Book>> GetAsync(int limit) =>
+        await _booksCollection.Find(_ => true).Limit(limit).ToListAsync();
 
     public async Task<Book?> GetAsync(string id) =>
         await _booksCollection.Find(x => x.Id == id).FirstOrDefaultAsync();

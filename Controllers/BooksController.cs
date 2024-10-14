@@ -1,11 +1,15 @@
+using System.Net.Mime;
 using BookStoreApi.Models;
 using BookStoreApi.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace BookStoreApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Produces(MediaTypeNames.Application.Json)]
+[Consumes(MediaTypeNames.Application.Json)]
 public class BooksController : ControllerBase
 {
     private readonly BooksService _booksService;
@@ -14,8 +18,10 @@ public class BooksController : ControllerBase
         _booksService = booksService;
 
     [HttpGet]
-    public async Task<List<Book>> Get() =>
-        await _booksService.GetAsync();
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<List<Book>> Get(int count) =>
+        await _booksService.GetAsync(count);
 
     [HttpGet("{id:length(24)}")]
     public async Task<ActionResult<Book>> Get(string id)
@@ -54,7 +60,11 @@ public class BooksController : ControllerBase
 
         return NoContent();
     }
-
+    /// <summary>
+    /// Delete a specific Item for a given id.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
     [HttpDelete("{id:length(24)}")]
     public async Task<IActionResult> Delete(string id)
     {

@@ -43,3 +43,6 @@
 /home/tsxepo/myApps/dotnet-apps/BookStoreApi/obj/Debug/net8.0/BookStoreApi.pdb
 /home/tsxepo/myApps/dotnet-apps/BookStoreApi/obj/Debug/net8.0/BookStoreApi.genruntimeconfig.cache
 /home/tsxepo/myApps/dotnet-apps/BookStoreApi/obj/Debug/net8.0/ref/BookStoreApi.dll
+/home/tsxepo/myApps/dotnet-apps/BookStoreApi/obj/Debug/net8.0/BookStoreApi.sourcelink.json
+/home/tsxepo/myApps/dotnet-apps/BookStoreApi/bin/Debug/net8.0/BookStoreApi.xml
+/home/tsxepo/myApps/dotnet-apps/BookStoreApi/obj/Debug/net8.0/BookStoreApi.xml
